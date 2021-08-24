@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsingToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:contentScrim="@color/colorAccent"
+                    android:background="@color/colorAccent"
+                    app:statusBarScrim="@color/colorAccent"
+                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                    app:expandedTitleTextAppearance="@style/ExpandedTitle"
+                    app:collapsedTitleTextAppearance="@style/CollapsedTitle"
+                    app:title="@string/authenticate">
+
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/toolbar_signup"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            app:layout_collapseMode="pin"
+                            android:elevation="0dp"
+                            app:titleTextColor="@color/white"
+                            android:theme="@style/ToolBarTheme.ToolBarStyle"
+                            />
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ic_password"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_check_black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="48dp"
+                            android:layout_marginStart="32dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PASSWORD"
+                            app:layout_constraintStart_toEndOf="@+id/ic_password"
+                            app:layout_constraintTop_toTopOf="@id/ic_password"
+                            app:layout_constraintBottom_toBottomOf="@id/ic_password"
+                            android:drawableEnd="@drawable/ic_password"
+                            android:drawableTint="@color/colorAccentDeactivate"
+                            android:drawablePadding="16dp"
+                            android:padding="16dp"
+                            android:textSize="14sp"
+                            android:layout_marginStart="8dp"/>
+
+                        <View
+                            android:id="@+id/view_fingerprint"
+                            android:layout_width="5dp"
+                            android:layout_height="40dp"
+                            app:layout_constraintStart_toStartOf="@+id/ic_password"
+                            app:layout_constraintEnd_toEndOf="@id/ic_password"
+                            android:background="@color/grey"
+                            app:layout_constraintTop_toBottomOf="@+id/ic_password"/>
+
+                        <ImageView
+                            android:id="@+id/ic_fingerprint"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="32dp"
+                            android:src="@drawable/ic_check_black"
+                            app:layout_constraintTop_toBottomOf="@+id/view_fingerprint"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FINGERPRINT"
+                            app:layout_constraintStart_toEndOf="@+id/ic_fingerprint"
+                            app:layout_constraintTop_toTopOf="@id/ic_fingerprint"
+                            app:layout_constraintBottom_toBottomOf="@id/ic_fingerprint"
+                            android:padding="16dp"
+                            android:textSize="14sp"
+                            android:drawablePadding="16dp"
+                            android:drawableEnd="@drawable/ic_baseline_fingerprint_24"
+                            android:drawableTint="@color/colorAccentDeactivate"
+                            android:layout_marginStart="8dp"/>
+
+
+                        <View
+                            android:id="@+id/view_face"
+                            android:layout_width="5dp"
+                            android:layout_height="40dp"
+                            app:layout_constraintStart_toStartOf="@+id/ic_fingerprint"
+                            app:layout_constraintEnd_toEndOf="@id/ic_fingerprint"
+                            android:background="@color/grey"
+                            app:layout_constraintTop_toBottomOf="@+id/ic_fingerprint"/>
+
+                        <ImageView
+                            android:id="@+id/ic_face"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="32dp"
+                            android:src="@drawable/ic_check_black"
+                            app:layout_constraintTop_toBottomOf="@+id/view_face"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tv_face_recognition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FACE RECOGNITIOIN"
+                            app:layout_constraintStart_toEndOf="@+id/ic_face"
+                            app:layout_constraintTop_toTopOf="@id/ic_face"
+                            app:layout_constraintBottom_toBottomOf="@id/ic_face"
+                            android:padding="16dp"
+                            android:textSize="14sp"
+                            android:drawablePadding="16dp"
+                            android:drawableTint="@color/grey"
+                            android:layout_marginStart="8dp"/>
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            app:layout_constraintStart_toEndOf="@+id/tv_face_recognition"
+                            app:layout_constraintTop_toTopOf="@+id/tv_face_recognition"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_face_recognition"
+                            app:tint="@color/colorAccentDeactivate"
+                            android:src="@drawable/bio_ic_face"/>
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_authenticate"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            style="@style/ButtonEnableDisableStyle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ic_face"
+                            android:text="Authenticate"
+                            android:layout_marginTop="60dp"
+                            android:textColor="@color/white"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
