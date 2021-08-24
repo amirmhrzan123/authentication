@@ -242,6 +242,7 @@ class AuthenticateActivity : AppCompatActivity() {
 
     fun providePrefsManager(pref: SharedPreferences): IPrefsManager = PrefsManager(pref)
 
+
     fun setUpForPassword(){
         ic_fingerprint.setImageDrawable(ContextCompat.getDrawable(this@AuthenticateActivity, R.drawable.ic_check_black))
         view_fingerprint.background = (ContextCompat.getDrawable(this@AuthenticateActivity, R.color.grey))
@@ -254,7 +255,6 @@ class AuthenticateActivity : AppCompatActivity() {
                setUpForPassword()
             },cancel = {
                 Log.d("SETUP","FROM NEW CANCEL")
-
                 setUpForPassword()
                 ic_password.setImageDrawable(ContextCompat.getDrawable(this@AuthenticateActivity, R.drawable.ic_check_black))
             },prefManager)
@@ -271,9 +271,8 @@ class AuthenticateActivity : AppCompatActivity() {
                     )
                     biometricPrompt.authenticate(promptInfo)
                 },cancel = {
-                    ic_password.setImageDrawable(ContextCompat.getDrawable(this@AuthenticateActivity, R.drawable.ic_check_black))
-                    Log.d("SETUP","FROM CANCEL")
-                    setUpForPassword()
+                    showToast("TimeOut", Toast.LENGTH_SHORT)
+                    finishAffinity()
 
                 },prefManager)
             }else{
@@ -310,7 +309,6 @@ class AuthenticateActivity : AppCompatActivity() {
             permissionsLauncher.launch(permissionsToRequest.toTypedArray())
         }
     }
-
 
     private fun savePhotoToInternalStorage(filename: String, bmp: Bitmap): Boolean {
         return try {

@@ -98,6 +98,7 @@ object CommonUtils {
             override fun onFinish() {
                 activity.showToast("Timeout", Toast.LENGTH_SHORT)
                 mBottomSheetDialog.dismiss()
+                cancel()
             }
 
         }

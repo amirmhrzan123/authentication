@@ -70,8 +70,6 @@ class FaceDetectionActivity : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            val intent = Intent(this@FaceDetectionActivity,AuthenticateActivity::class.java)
-            startActivity(intent)
             this@FaceDetectionActivity.showToast("TimeOut", Toast.LENGTH_SHORT)
             finishAffinity()
             cancel()
@@ -94,7 +92,6 @@ class FaceDetectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         timer.start()
-
         // Remove the Status Bar for a fullscreen display
         // See this SO answer -> https://stackoverflow.com/a/5436403/10878733
         requestWindowFeature(Window.FEATURE_NO_TITLE);
