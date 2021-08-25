@@ -24,7 +24,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.projects.authenticate.facerecognition.FaceDetectionActivity
-import com.projects.authenticate.facerecognition.InternalStoragePhoto
 import com.projects.authenticate.prefs.IPrefsManager
 import com.projects.authenticate.prefs.PrefsManager
 import com.projects.authenticate.utils.CommonUtils
@@ -32,7 +31,6 @@ import com.projects.authenticate.utils.Constants
 import com.projects.authenticate.utils.Utilities
 import com.projects.authenticate.utils.showToast
 import kotlinx.android.synthetic.main.activity_authenticate.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottomsheet_password.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -136,11 +134,6 @@ class AuthenticateActivity : AppCompatActivity() {
                     errString: CharSequence
                 ) {
                     super.onAuthenticationError(errorCode, errString)
-                    Utilities.showSnackBar(
-                        Constants.AUTHENTICATION_ERROR + " " + errString,
-                        this@AuthenticateActivity
-                    )
-
 
                 }
 
@@ -148,10 +141,6 @@ class AuthenticateActivity : AppCompatActivity() {
                     result: BiometricPrompt.AuthenticationResult
                 ) {
                     super.onAuthenticationSucceeded(result)
-                    Utilities.showSnackBar(
-                        Constants.AUTHENTICATION_SUCCEEDED,
-                        this@AuthenticateActivity
-                    )
                     ic_fingerprint.setImageDrawable(ContextCompat.getDrawable(this@AuthenticateActivity, R.drawable.ic_check_green))
                     view_fingerprint.background = (ContextCompat.getDrawable(this@AuthenticateActivity, R.color.green))
                     /*CommonUtils.openSelection(this@AuthenticateActivity,student = {
@@ -174,10 +163,6 @@ class AuthenticateActivity : AppCompatActivity() {
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
-                    Utilities.showSnackBar(
-                        Constants.AUTHENTICATION_FAILED,
-                        this@AuthenticateActivity
-                    )
                 }
             })
     }
