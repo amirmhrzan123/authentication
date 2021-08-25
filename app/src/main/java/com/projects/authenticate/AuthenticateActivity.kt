@@ -76,15 +76,7 @@ class AuthenticateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_authenticate)
         prefManager = providePrefsManager(provideSharePreference(this))
         executor = ContextCompat.getMainExecutor(this)
-        permissionsLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-            readPermissionGranted = permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: readPermissionGranted
-            writePermissionGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: writePermissionGranted
 
-
-        }
-
-
-        updateOrRequestPermissions()
 
         takePhoto = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
             savePhotoToInternalStorage(UUID.randomUUID().toString(), it)
